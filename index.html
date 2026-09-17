@@ -1,1 +1,371 @@
-hello world
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Flight Line Foundation expands access to aviation education, technical training, mentorship, and hands-on learning opportunities.">
+  <meta name="theme-color" content="#071a2d">
+  <title>Flight Line Foundation | Aviation Education</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23071a2d'/%3E%3Cpath d='M9 34h17L40 16h7L38 34h14l4-6h4l-2 10 2 10h-4l-4-6H38l9 18h-7L26 42H9l5-8-5-8h5z' fill='%23f2b544'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --navy: #071a2d;
+      --navy-soft: #0e2b47;
+      --blue: #236b9e;
+      --sky: #8bc7e8;
+      --gold: #f2b544;
+      --paper: #f6f8fa;
+      --white: #ffffff;
+      --ink: #142536;
+      --muted: #5c6b77;
+      --line: #dce4ea;
+      --shadow: 0 20px 55px rgba(7, 26, 45, .12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+
+    .site-header {
+      position: absolute;
+      z-index: 10;
+      width: 100%;
+      color: var(--white);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 84px;
+      border-bottom: 1px solid rgba(255,255,255,.14);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--white);
+      text-decoration: none;
+      font-size: .95rem;
+      font-weight: 800;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 50%;
+      color: var(--gold);
+    }
+    .brand-mark svg { width: 24px; }
+    .nav-links { display: flex; align-items: center; gap: 30px; }
+    .nav-links a {
+      color: rgba(255,255,255,.84);
+      text-decoration: none;
+      font-size: .92rem;
+      font-weight: 650;
+    }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--white); }
+    .nav-contact {
+      padding: 9px 15px;
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 999px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 720px;
+      padding: 190px 0 105px;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 80% 20%, rgba(65, 153, 207, .28), transparent 34%),
+        linear-gradient(135deg, #061625 0%, #0a2944 62%, #104269 100%);
+    }
+    .hero::before, .hero::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 50%;
+    }
+    .hero::before { width: 680px; height: 680px; right: -220px; top: 70px; }
+    .hero::after { width: 470px; height: 470px; right: -115px; top: 175px; }
+    .flight-path {
+      position: absolute;
+      right: 2%;
+      bottom: 9%;
+      width: 46%;
+      height: 44%;
+      opacity: .7;
+    }
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(260px, .75fr);
+      align-items: end;
+      gap: 90px;
+    }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 24px;
+      color: var(--gold);
+      font-size: .78rem;
+      font-weight: 850;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 36px; height: 2px; background: currentColor; }
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.2rem, 7vw, 6.2rem);
+      font-weight: 500;
+      line-height: .98;
+      letter-spacing: -.045em;
+    }
+    .hero-copy {
+      max-width: 650px;
+      margin: 30px 0 36px;
+      color: rgba(255,255,255,.76);
+      font-size: 1.14rem;
+      line-height: 1.75;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 50px;
+      padding: 0 21px;
+      border-radius: 4px;
+      background: var(--gold);
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 800;
+      box-shadow: 0 10px 28px rgba(242,181,68,.18);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(242,181,68,.28); }
+    .button svg { width: 18px; }
+    .hero-note {
+      padding: 27px;
+      border-top: 2px solid var(--gold);
+      background: rgba(255,255,255,.07);
+      backdrop-filter: blur(8px);
+    }
+    .hero-note strong { display: block; margin-bottom: 8px; color: var(--white); font-size: 1.05rem; }
+    .hero-note p { margin: 0; color: rgba(255,255,255,.7); font-size: .94rem; }
+
+    section { padding: 105px 0; }
+    .section-label { margin-bottom: 14px; color: var(--blue); font-size: .76rem; font-weight: 850; letter-spacing: .18em; text-transform: uppercase; }
+    .section-title {
+      max-width: 720px;
+      margin: 0;
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.25rem, 4.5vw, 3.7rem);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -.035em;
+    }
+    .mission-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 90px; align-items: start; }
+    .mission-copy { padding-top: 3px; color: var(--muted); font-size: 1.08rem; }
+    .mission-copy p { margin: 0 0 21px; }
+    .mission-copy p:first-child { color: var(--ink); font-size: 1.28rem; line-height: 1.6; }
+
+    .programs { background: var(--white); }
+    .programs-head { display: flex; justify-content: space-between; gap: 50px; align-items: end; margin-bottom: 55px; }
+    .programs-intro { max-width: 430px; margin: 0; color: var(--muted); }
+    .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+    .card {
+      min-height: 275px;
+      padding: 34px 30px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--white);
+      transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover { position: relative; z-index: 1; background: #fbfcfd; transform: translateY(-4px); box-shadow: var(--shadow); }
+    .card-number { color: var(--blue); font-family: Georgia, serif; font-size: 1rem; font-style: italic; }
+    .card h3 { margin: 45px 0 12px; color: var(--navy); font-size: 1.18rem; line-height: 1.35; }
+    .card p { margin: 0; color: var(--muted); font-size: .94rem; }
+
+    .approach { background: var(--navy); color: var(--white); }
+    .approach .section-label { color: var(--gold); }
+    .approach .section-title { color: var(--white); }
+    .approach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; align-items: center; }
+    .approach-list { display: grid; gap: 2px; }
+    .approach-item { display: grid; grid-template-columns: 50px 1fr; gap: 18px; padding: 22px 0; border-bottom: 1px solid rgba(255,255,255,.12); }
+    .approach-item:first-child { border-top: 1px solid rgba(255,255,255,.12); }
+    .approach-icon { color: var(--gold); font-family: Georgia, serif; font-size: 1.65rem; }
+    .approach-item h3 { margin: 0 0 5px; font-size: 1.02rem; }
+    .approach-item p { margin: 0; color: rgba(255,255,255,.64); font-size: .93rem; }
+
+    .contact { padding: 90px 0; background: var(--gold); }
+    .contact-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 70px; align-items: center; }
+    .contact .section-label { color: var(--navy); }
+    .contact .section-title { font-size: clamp(2.2rem, 4vw, 3.3rem); }
+    .contact-box { padding: 28px 31px; background: var(--navy); color: var(--white); box-shadow: 13px 13px 0 rgba(7,26,45,.14); }
+    .contact-box small { display: block; margin-bottom: 8px; color: var(--sky); font-size: .74rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+    .contact-box a { color: var(--white); font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 750; text-decoration: none; overflow-wrap: anywhere; }
+    .contact-box a:hover { color: var(--gold); }
+
+    footer { padding: 32px 0; background: #04101c; color: rgba(255,255,255,.58); font-size: .85rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 25px; }
+
+    @media (max-width: 850px) {
+      .nav-links a:not(.nav-contact) { display: none; }
+      .hero { min-height: auto; padding-top: 155px; }
+      .hero-grid, .mission-grid, .approach-grid, .contact-grid { grid-template-columns: 1fr; gap: 50px; }
+      .hero-note { max-width: 520px; }
+      .programs-head { display: block; }
+      .programs-intro { margin-top: 24px; }
+      .card-grid { grid-template-columns: repeat(2, 1fr); }
+      .flight-path { width: 70%; opacity: .45; }
+    }
+    @media (max-width: 570px) {
+      .wrap { width: min(100% - 28px, 1120px); }
+      .nav { min-height: 74px; }
+      .brand { font-size: .76rem; letter-spacing: .08em; }
+      .brand-mark { width: 36px; height: 36px; }
+      .nav-contact { padding: 7px 11px; font-size: .8rem !important; }
+      .hero { padding: 135px 0 75px; }
+      h1 { font-size: clamp(2.8rem, 15vw, 4rem); }
+      section { padding: 75px 0; }
+      .card-grid { grid-template-columns: 1fr; }
+      .card { min-height: auto; }
+      .card h3 { margin-top: 30px; }
+      .footer-inner { display: block; }
+      .footer-inner span { display: block; margin-top: 7px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Flight Line Foundation home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none"><path d="M4 22h11L25 8h4l-6 14h9l3-4h2l-1 6 1 6h-2l-3-4h-9l6 14h-4L15 26H4l3-4-3-4h3z" fill="currentColor"/></svg>
+        </span>
+        <span>Flight Line Foundation</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#mission">Mission</a>
+        <a href="#programs">Programs</a>
+        <a class="nav-contact" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <svg class="flight-path" viewBox="0 0 700 400" fill="none" aria-hidden="true">
+        <path d="M6 364C160 355 184 275 279 273c125-3 88 83 213 62 82-14 109-80 194-214" stroke="white" stroke-opacity=".22" stroke-width="2" stroke-dasharray="9 12"/>
+        <path d="m633 92 25-35 3 34 27 15-34 5-25 27 9-33-19-25 14 12Z" fill="#f2b544"/>
+      </svg>
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Aviation education within reach</p>
+          <h1>Opening the path to aviation.</h1>
+          <p class="hero-copy">Flight Line Foundation expands access to aviation education, technical training, mentorship, and hands-on learning for the next generation of aviation and aerospace professionals.</p>
+          <a class="button" href="#mission">Explore our mission
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <aside class="hero-note">
+          <strong>Education. Experience. Opportunity.</strong>
+          <p>Connecting students and aspiring professionals with the people, equipment, and practical knowledge that bring aviation careers into view.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="mission">
+      <div class="wrap mission-grid">
+        <div>
+          <div class="section-label">Our mission</div>
+          <h2 class="section-title">Turning aviation interest into real opportunity.</h2>
+        </div>
+        <div class="mission-copy">
+          <p>Flight Line Foundation is dedicated to reducing the financial and practical barriers that can keep people from participating in aviation.</p>
+          <p>We support the development of future pilots, aircraft maintenance professionals, technicians, and other aviation and aerospace professionals through educational resources, practical experience, mentorship, and access to aviation equipment and activities.</p>
+          <p>Our work is designed to supplement classroom learning with real-world exposure to aircraft, aircraft systems, maintenance, flight operations, and modern aviation technology.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="programs" id="programs">
+      <div class="wrap">
+        <div class="programs-head">
+          <div>
+            <div class="section-label">Program areas</div>
+            <h2 class="section-title">Learning from the hangar to the flight deck.</h2>
+          </div>
+          <p class="programs-intro">As a growing organization, we are developing partnerships and resources across six connected areas of aviation education.</p>
+        </div>
+        <div class="card-grid">
+          <article class="card"><span class="card-number">01</span><h3>Aviation Education and Career Exploration</h3><p>Introducing participants to aviation careers, aircraft systems, flight operations, safety, and aerospace technology.</p></article>
+          <article class="card"><span class="card-number">02</span><h3>Hands-On Aircraft and Maintenance Education</h3><p>Supervised practical learning involving aircraft, components, tools, maintenance practices, and avionics.</p></article>
+          <article class="card"><span class="card-number">03</span><h3>Pilot and Flight Education Support</h3><p>Building knowledge of flight training, aircraft operations, navigation, weather, regulations, and safe decision-making.</p></article>
+          <article class="card"><span class="card-number">04</span><h3>Aviation Technology and STEM</h3><p>Exploring avionics, electronics, communications, simulation, data analysis, and other technology used in modern aviation.</p></article>
+          <article class="card"><span class="card-number">05</span><h3>Mentorship and Professional Development</h3><p>Connecting participants with experienced professionals who can guide education, certification, and career choices.</p></article>
+          <article class="card"><span class="card-number">06</span><h3>Equipment and Resource Access</h3><p>Obtaining equipment, software, tools, and training materials for use in aviation education and hands-on learning.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="approach">
+      <div class="wrap approach-grid">
+        <div>
+          <div class="section-label">How we work</div>
+          <h2 class="section-title">Practical education built through partnership.</h2>
+        </div>
+        <div class="approach-list">
+          <div class="approach-item"><div class="approach-icon">A</div><div><h3>Accessible learning</h3><p>We work to make aviation knowledge and experiences available to people who may not otherwise have access.</p></div></div>
+          <div class="approach-item"><div class="approach-icon">B</div><div><h3>Hands-on experience</h3><p>Real equipment and practical instruction help connect technical concepts to the aviation environment.</p></div></div>
+          <div class="approach-item"><div class="approach-icon">C</div><div><h3>Community partnerships</h3><p>Support from educators, aviation professionals, businesses, and donors helps expand what participants can learn and do.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact-grid">
+        <div>
+          <div class="section-label">Connect with us</div>
+          <h2 class="section-title">Help create a clearer path into aviation.</h2>
+        </div>
+        <div class="contact-box">
+          <small>General inquiries and partnerships</small>
+          <a href="mailto:chris@flightlinefoundation.org">chris@flightlinefoundation.org</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div>© <span id="year"></span> Flight Line Foundation</div>
+      <span>501(c)(3) nonprofit organization</span>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
