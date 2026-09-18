@@ -3,10 +3,44 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Flight Line Foundation expands access to aviation education, technical training, mentorship, and hands-on learning opportunities.">
+  <meta name="description" content="Flight Line Foundation is an IRS-recognized 501(c)(3) public charity expanding access to aviation and aerospace education through hands-on STEM learning, mentorship, and career exploration.">
+  <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#071a2d">
-  <title>Flight Line Foundation | Aviation Education</title>
+
+  <title>Flight Line Foundation | Aviation &amp; Aerospace Education</title>
+  <link rel="canonical" href="https://www.flightlinefoundation.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Flight Line Foundation">
+  <meta property="og:url" content="https://www.flightlinefoundation.com/">
+  <meta property="og:title" content="Flight Line Foundation | Aviation &amp; Aerospace Education">
+  <meta property="og:description" content="An IRS-recognized 501(c)(3) public charity expanding access to aviation and aerospace education through hands-on STEM learning, mentorship, and career exploration.">
+
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23071a2d'/%3E%3Cpath d='M9 34h17L40 16h7L38 34h14l4-6h4l-2 10 2 10h-4l-4-6H38l9 18h-7L26 42H9l5-8-5-8h5z' fill='%23f2b544'/%3E%3C/svg%3E">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NGO",
+    "name": "Flight Line Foundation",
+    "url": "https://www.flightlinefoundation.com/",
+    "email": "info@flightlinefoundation.com",
+    "description": "Flight Line Foundation is an IRS-recognized 501(c)(3) public charity expanding access to aviation and aerospace education through hands-on STEM learning, mentorship, and career exploration.",
+    "areaServed": "St. Louis Metro East and greater St. Louis region",
+    "member": [
+      {"@type": "Person", "name": "Beth Blank", "jobTitle": "President"},
+      {"@type": "Person", "name": "Chris Blank", "jobTitle": "Secretary & Treasurer"},
+      {"@type": "Person", "name": "Matthew Kopp", "jobTitle": "Director"},
+      {"@type": "Person", "name": "Nicholas Hankins", "jobTitle": "Director"}
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "General inquiries and partnerships",
+      "email": "info@flightlinefoundation.com"
+    }
+  }
+  </script>
+
   <style>
     :root {
       --navy: #071a2d;
@@ -33,6 +67,10 @@
       line-height: 1.65;
     }
     a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--sky);
+      outline-offset: 4px;
+    }
     .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
 
     .site-header {
@@ -145,6 +183,12 @@
       font-size: 1.14rem;
       line-height: 1.75;
     }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
     .button {
       display: inline-flex;
       align-items: center;
@@ -161,6 +205,13 @@
     }
     .button:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(242,181,68,.28); }
     .button svg { width: 18px; }
+    .hero-link {
+      color: var(--white);
+      font-weight: 750;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,.42);
+    }
+    .hero-link:hover { border-color: var(--gold); color: var(--gold); }
     .hero-note {
       padding: 27px;
       border-top: 2px solid var(--gold);
@@ -186,6 +237,31 @@
     .mission-copy { padding-top: 3px; color: var(--muted); font-size: 1.08rem; }
     .mission-copy p { margin: 0 0 21px; }
     .mission-copy p:first-child { color: var(--ink); font-size: 1.28rem; line-height: 1.6; }
+
+    .about { background: #edf3f6; }
+    .about-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 90px; align-items: start; }
+    .about-copy { color: var(--muted); font-size: 1.04rem; }
+    .about-copy p { margin: 0 0 20px; }
+    .leadership { margin-top: 58px; }
+    .leadership-header { max-width: 760px; margin-bottom: 28px; }
+    .leadership-header h3 { margin: 0 0 8px; color: var(--navy); font-size: 1.35rem; }
+    .leadership-header p { margin: 0; color: var(--muted); }
+    .leadership-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .leader-card {
+      padding: 24px 21px;
+      background: var(--white);
+      border: 1px solid var(--line);
+    }
+    .leader-card strong { display: block; color: var(--navy); font-size: 1rem; }
+    .leader-card span { display: block; margin: 3px 0 12px; color: var(--muted); font-size: .86rem; }
+    .leader-card a {
+      color: var(--blue);
+      font-size: .84rem;
+      font-weight: 700;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+    .leader-card a:hover { text-decoration: underline; }
 
     .programs { background: var(--white); }
     .programs-head { display: flex; justify-content: space-between; gap: 50px; align-items: end; margin-bottom: 55px; }
@@ -219,10 +295,13 @@
     .contact-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 70px; align-items: center; }
     .contact .section-label { color: var(--navy); }
     .contact .section-title { font-size: clamp(2.2rem, 4vw, 3.3rem); }
+    .contact-intro { max-width: 680px; margin: 20px 0 0; color: rgba(7,26,45,.78); font-weight: 600; }
     .contact-box { padding: 28px 31px; background: var(--navy); color: var(--white); box-shadow: 13px 13px 0 rgba(7,26,45,.14); }
     .contact-box small { display: block; margin-bottom: 8px; color: var(--sky); font-size: .74rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
     .contact-box a { color: var(--white); font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 750; text-decoration: none; overflow-wrap: anywhere; }
     .contact-box a:hover { color: var(--gold); }
+    .contact-divider { height: 1px; margin: 22px 0; background: rgba(255,255,255,.14); }
+    .contact-name { display: block; margin-bottom: 4px; color: var(--white); font-size: .95rem; }
 
     footer { padding: 32px 0; background: #04101c; color: rgba(255,255,255,.58); font-size: .85rem; }
     .footer-inner { display: flex; justify-content: space-between; gap: 25px; }
@@ -230,11 +309,12 @@
     @media (max-width: 850px) {
       .nav-links a:not(.nav-contact) { display: none; }
       .hero { min-height: auto; padding-top: 155px; }
-      .hero-grid, .mission-grid, .approach-grid, .contact-grid { grid-template-columns: 1fr; gap: 50px; }
+      .hero-grid, .mission-grid, .about-grid, .approach-grid, .contact-grid { grid-template-columns: 1fr; gap: 50px; }
       .hero-note { max-width: 520px; }
       .programs-head { display: block; }
       .programs-intro { margin-top: 24px; }
       .card-grid { grid-template-columns: repeat(2, 1fr); }
+      .leadership-grid { grid-template-columns: repeat(2, 1fr); }
       .flight-path { width: 70%; opacity: .45; }
     }
     @media (max-width: 570px) {
@@ -246,7 +326,7 @@
       .hero { padding: 135px 0 75px; }
       h1 { font-size: clamp(2.8rem, 15vw, 4rem); }
       section { padding: 75px 0; }
-      .card-grid { grid-template-columns: 1fr; }
+      .card-grid, .leadership-grid { grid-template-columns: 1fr; }
       .card { min-height: auto; }
       .card h3 { margin-top: 30px; }
       .footer-inner { display: block; }
@@ -269,6 +349,7 @@
       </a>
       <nav class="nav-links" aria-label="Main navigation">
         <a href="#mission">Mission</a>
+        <a href="#about">About</a>
         <a href="#programs">Programs</a>
         <a class="nav-contact" href="#contact">Contact</a>
       </nav>
@@ -285,14 +366,17 @@
         <div>
           <p class="eyebrow">Aviation education within reach</p>
           <h1>Opening the path to aviation.</h1>
-          <p class="hero-copy">Flight Line Foundation expands access to aviation education, technical training, mentorship, and hands-on learning for the next generation of aviation and aerospace professionals.</p>
-          <a class="button" href="#mission">Explore our mission
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
+          <p class="hero-copy">Flight Line Foundation expands public access to aviation and aerospace education through hands-on STEM learning, mentorship, career exploration, and meaningful exposure to aircraft and aviation technology.</p>
+          <div class="hero-actions">
+            <a class="button" href="#mission">Explore our mission
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="hero-link" href="#contact">Partner with us</a>
+          </div>
         </div>
         <aside class="hero-note">
           <strong>Education. Experience. Opportunity.</strong>
-          <p>Connecting students and aspiring professionals with the people, equipment, and practical knowledge that bring aviation careers into view.</p>
+          <p>Connecting youth, students, and community members with the people, equipment, and practical knowledge that make aviation and aerospace more accessible.</p>
         </aside>
       </div>
     </section>
@@ -304,9 +388,54 @@
           <h2 class="section-title">Turning aviation interest into real opportunity.</h2>
         </div>
         <div class="mission-copy">
-          <p>Flight Line Foundation is dedicated to reducing the financial and practical barriers that can keep people from participating in aviation.</p>
-          <p>We support the development of future pilots, aircraft maintenance professionals, technicians, and other aviation and aerospace professionals through educational resources, practical experience, mentorship, and access to aviation equipment and activities.</p>
-          <p>Our work is designed to supplement classroom learning with real-world exposure to aircraft, aircraft systems, maintenance, flight operations, and modern aviation technology.</p>
+          <p>Flight Line Foundation is dedicated to reducing the financial and practical barriers that can limit access to aviation and aerospace education.</p>
+          <p>We create educational opportunities through hands-on learning, mentorship, career exploration, and access to aviation equipment, technology, and experienced professionals.</p>
+          <p>Our programs connect classroom concepts with real-world exposure to aircraft, aircraft systems, maintenance, flight operations, avionics, and modern aviation technology.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="wrap">
+        <div class="about-grid">
+          <div>
+            <div class="section-label">About the Foundation</div>
+            <h2 class="section-title">A public charity focused on aviation education.</h2>
+          </div>
+          <div class="about-copy">
+            <p>Flight Line Foundation is an IRS-recognized 501(c)(3) public charity dedicated to expanding access to aviation and aerospace education through hands-on STEM learning, mentorship, career exploration, and practical exposure to aircraft and aviation technology.</p>
+            <p>The Foundation develops educational opportunities for youth, students, aspiring aviation professionals, and members of the community who may not otherwise have access to aviation experiences, equipment, or mentors.</p>
+            <p>Flight Line Foundation serves the St. Louis Metro East and greater St. Louis region.</p>
+          </div>
+        </div>
+
+        <div class="leadership">
+          <div class="leadership-header">
+            <h3>Board of Directors</h3>
+            <p>Flight Line Foundation is governed by a Board of Directors responsible for the organization’s charitable mission, programs, and stewardship.</p>
+          </div>
+          <div class="leadership-grid">
+            <div class="leader-card">
+              <strong>Beth Blank</strong>
+              <span>President</span>
+              <a href="mailto:president@flightlinefoundation.com">president@flightlinefoundation.com</a>
+            </div>
+            <div class="leader-card">
+              <strong>Chris Blank</strong>
+              <span>Secretary &amp; Treasurer</span>
+              <a href="mailto:secretary@flightlinefoundation.com">secretary@flightlinefoundation.com</a>
+            </div>
+            <div class="leader-card">
+              <strong>Matthew Kopp</strong>
+              <span>Director</span>
+              <a href="mailto:directors@flightlinefoundation.com">directors@flightlinefoundation.com</a>
+            </div>
+            <div class="leader-card">
+              <strong>Nicholas Hankins</strong>
+              <span>Director</span>
+              <a href="mailto:directors@flightlinefoundation.com">directors@flightlinefoundation.com</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -318,15 +447,15 @@
             <div class="section-label">Program areas</div>
             <h2 class="section-title">Learning from the hangar to the flight deck.</h2>
           </div>
-          <p class="programs-intro">As a growing organization, we are developing partnerships and resources across six connected areas of aviation education.</p>
+          <p class="programs-intro">As a growing organization, we are building programs, partnerships, and educational resources across six connected areas of aviation and aerospace education.</p>
         </div>
         <div class="card-grid">
           <article class="card"><span class="card-number">01</span><h3>Aviation Education and Career Exploration</h3><p>Introducing participants to aviation careers, aircraft systems, flight operations, safety, and aerospace technology.</p></article>
           <article class="card"><span class="card-number">02</span><h3>Hands-On Aircraft and Maintenance Education</h3><p>Supervised practical learning involving aircraft, components, tools, maintenance practices, and avionics.</p></article>
-          <article class="card"><span class="card-number">03</span><h3>Pilot and Flight Education Support</h3><p>Building knowledge of flight training, aircraft operations, navigation, weather, regulations, and safe decision-making.</p></article>
-          <article class="card"><span class="card-number">04</span><h3>Aviation Technology and STEM</h3><p>Exploring avionics, electronics, communications, simulation, data analysis, and other technology used in modern aviation.</p></article>
-          <article class="card"><span class="card-number">05</span><h3>Mentorship and Professional Development</h3><p>Connecting participants with experienced professionals who can guide education, certification, and career choices.</p></article>
-          <article class="card"><span class="card-number">06</span><h3>Equipment and Resource Access</h3><p>Obtaining equipment, software, tools, and training materials for use in aviation education and hands-on learning.</p></article>
+          <article class="card"><span class="card-number">03</span><h3>Aviation Knowledge and Flight Familiarization</h3><p>Helping participants understand aircraft operations, navigation, weather, aviation safety, flight training pathways, and sound decision-making.</p></article>
+          <article class="card"><span class="card-number">04</span><h3>Aviation Technology and STEM</h3><p>Exploring avionics, electronics, communications, simulation, data, and other technologies that help participants understand how modern aircraft and aviation systems work.</p></article>
+          <article class="card"><span class="card-number">05</span><h3>Mentorship and Aviation Pathways</h3><p>Connecting participants with experienced aviation professionals who can help them explore education, certification, training, and career pathways.</p></article>
+          <article class="card"><span class="card-number">06</span><h3>Educational Equipment and Resource Access</h3><p>Expanding access to aviation equipment, software, tools, simulators, and training materials that support hands-on learning and technical education.</p></article>
         </div>
       </div>
     </section>
@@ -338,9 +467,27 @@
           <h2 class="section-title">Practical education built through partnership.</h2>
         </div>
         <div class="approach-list">
-          <div class="approach-item"><div class="approach-icon">A</div><div><h3>Accessible learning</h3><p>We work to make aviation knowledge and experiences available to people who may not otherwise have access.</p></div></div>
-          <div class="approach-item"><div class="approach-icon">B</div><div><h3>Hands-on experience</h3><p>Real equipment and practical instruction help connect technical concepts to the aviation environment.</p></div></div>
-          <div class="approach-item"><div class="approach-icon">C</div><div><h3>Community partnerships</h3><p>Support from educators, aviation professionals, businesses, and donors helps expand what participants can learn and do.</p></div></div>
+          <div class="approach-item">
+            <div class="approach-icon">A</div>
+            <div>
+              <h3>Accessible aviation education</h3>
+              <p>We work to reduce barriers to aviation and aerospace learning by connecting participants with educational resources, equipment, mentors, and real-world experiences.</p>
+            </div>
+          </div>
+          <div class="approach-item">
+            <div class="approach-icon">B</div>
+            <div>
+              <h3>Hands-on technical learning</h3>
+              <p>Aircraft, tools, simulators, avionics, and other aviation technology help participants connect technical concepts to practical applications.</p>
+            </div>
+          </div>
+          <div class="approach-item">
+            <div class="approach-icon">C</div>
+            <div>
+              <h3>Mentorship and community support</h3>
+              <p>Educators, aviation professionals, businesses, and volunteers help participants explore pathways into aviation education, certification, and careers.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -350,10 +497,15 @@
         <div>
           <div class="section-label">Connect with us</div>
           <h2 class="section-title">Help create a clearer path into aviation.</h2>
+          <p class="contact-intro">We welcome partnerships with educators, aviation professionals, businesses, donors, and community organizations that can help expand access to aviation education.</p>
         </div>
         <div class="contact-box">
           <small>General inquiries and partnerships</small>
           <a href="mailto:info@flightlinefoundation.com">info@flightlinefoundation.com</a>
+          <div class="contact-divider" aria-hidden="true"></div>
+          <small>Secretary &amp; Treasurer</small>
+          <strong class="contact-name">Chris Blank</strong>
+          <a href="mailto:secretary@flightlinefoundation.com">secretary@flightlinefoundation.com</a>
         </div>
       </div>
     </section>
@@ -362,7 +514,7 @@
   <footer>
     <div class="wrap footer-inner">
       <div>© <span id="year"></span> Flight Line Foundation</div>
-      <span>501(c)(3) nonprofit organization</span>
+      <span>IRS-recognized 501(c)(3) public charity</span>
     </div>
   </footer>
 
